@@ -56,3 +56,38 @@ void aboutScreen(void) {
 
     terminalCleaner();
 }
+
+/**
+ * @author José Victor
+ * Method that shows the developers team screen
+ */
+void teamScreen(void) {
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                    Discipline DCT1106 -- Programação                    ///\n");
+    printf("///                 SIG-Staff -- A system for staff control                 ///\n");
+    printf("///           Developed by @guilhermecostam and @victormedeiros1            ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///                      = = = = = SIG-Staff = = = = =                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             This project was developed by:                              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             Guilherme Costa                                             ///\n");
+    printf("///             E-mail: guilherme.costa.134@ufrn.edu.br                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             José Victor                                                 ///\n");
+    printf("///             E-mail: jose.victor.017@ufrn.edu.br                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             Repositório: https://github.com/guilhermecostam/SIG-Staff   ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+
+    terminalCleaner();
+}
