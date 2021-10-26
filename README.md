@@ -5,6 +5,7 @@
 </div>
 
 <p align="center">A system for staff control</p>
+<p align="center">Project developed for the discipline DCT1106 - Programação Semester 2021.2</p>
 
 <hr />
 
@@ -44,4 +45,4 @@ git push origin my-feature
 After the merge of your pull request is done, you can delete your branch.
 
 ---
-Made with :zap: by Guilherme Costa. [Get in touch!](https://www.linkedin.com/in/guilhermecostam/)
+Developed :zap: by [Guilherme Costa](https://www.linkedin.com/in/guilhermecostam/) and [José Victor](https://www.linkedin.com/in/jos%C3%A9-victor-dev/)
