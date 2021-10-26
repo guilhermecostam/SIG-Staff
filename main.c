@@ -44,23 +44,30 @@ int main(void){
         printf("\n");
         
         printf("Type the operation you want:\n\t>>> ");
-        scanf("%i", &operation);
+        scanf("%d", &operation);
         printf("\n");
 
-        if (operation != 0 && operation <= 3 && operation > 0) // impede que seja colocado números que não pode
+        if (operation != 0)
         {
             terminalCleaner();
             switch (operation)
             {
-                case 1:
+                // case 1:
+                //     systemScreen();
+                //     break;
+                case 2:
                     aboutScreen();
                     break;
-                case 2:
+                case 3:
                     teamScreen();
                     break;
-                // case 3:
-                //     aboutScreen();
-                //     break;
+                default:
+                    printf("\t//////////////////////////////////////////////\n");
+                    printf("\t///                                        ///\n");
+                    printf("\t///   You have entered an invalid option!  ///\n");
+                    printf("\t///                                        ///\n");
+                    printf("\t//////////////////////////////////////////////\n");
+                    terminalCleaner();
             }
         }
     } while (operation != 0);
@@ -77,7 +84,7 @@ int main(void){
  * Method that clean the terminal
  */
 void terminalCleaner(void){
-    printf("\t\t\t>>> Press <ENTER> to continue...\n");
+    printf("\n\t\t>>> Press <ENTER> to continue...\n");
     getchar();
     system("clear||cls");
 }
