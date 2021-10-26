@@ -9,11 +9,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void terminalCleaner(void);
+void aboutScreen(void);
+void teamScreen(void);
+
 /**
  * Method main
  */
-int main(){
-    aboutScreen();
+int main(void){
+    int operation;
+
+    do {
+        operation = 0;
+
+        printf("\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+        printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+        printf("///                    Discipline DCT1106 -- Programação                    ///\n");
+        printf("///                 SIG-Staff -- A system for staff control                 ///\n");
+        printf("///           Developed by @guilhermecostam and @victormedeiros1            ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///                       = = Welcome to SIG-Staff = =                      ///\n");
+        printf("///                                                                         ///\n");
+        printf("///             Type (1) to access the system screen                        ///\n");
+        printf("///             Type (2) to access the about screen                         ///\n");
+        printf("///             Type (3) to access the team screen                          ///\n");
+        printf("///             Type (0) to exit the system                                 ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        
+        printf("Type the operation you want:\n\t>>> ");
+        scanf("%i", &operation);
+        printf("\n");
+
+        if (operation != 0 && operation <= 3 && operation > 0) // impede que seja colocado números que não pode
+        {
+            terminalCleaner();
+            switch (operation)
+            {
+                case 1:
+                    aboutScreen();
+                    break;
+                case 2:
+                    teamScreen();
+                    break;
+                // case 3:
+                //     aboutScreen();
+                //     break;
+            }
+        }
+    } while (operation != 0);
+
+    printf("Goodbye!");
     return 0;
 }
 
@@ -62,7 +114,6 @@ void aboutScreen(void) {
  * Method that shows the developers team screen
  */
 void teamScreen(void) {
-    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
