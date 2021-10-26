@@ -9,6 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * Method main
+ */
 int main(){
     aboutScreen();
     return 0;
