@@ -124,7 +124,7 @@ void systemOptionsScreen(void) {
         printf("///           = = = = =   Type the desired option   = = = = =             ///\n");
         printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
         printf("///                                                                       ///\n");
-        printf("///            Press (1) to list the staff                                ///\n");
+        printf("///            Press (1) to list of staff                                 ///\n");
         printf("///            Press (2) to create new staff                              ///\n");
         printf("///            Press (3) to search for a specific staff                   ///\n");
         printf("///            Press (4) to update the staff register                     ///\n");
@@ -217,6 +217,10 @@ void teamScreen(void) {
     terminalCleaner();
 }
 
+/**
+ * @author José Victor
+ * Method that shows the developers team screen
+ */
 void listStaffScreen(void){
     printf("\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -229,7 +233,7 @@ void listStaffScreen(void){
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("///                                                                       ///\n");
-        printf("///                           = = List Staff = =                          ///\n");
+        printf("///                         = = List of Staff = =                         ///\n");
         for(int i = 0; i < 5; i++){
             printf("///                                   %d                                   ///\n", i);
         }
