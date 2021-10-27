@@ -10,6 +10,8 @@
 #include <stdlib.h>
 
 void terminalCleaner(void);
+void mainScreen(void);
+void systemOptionsScreen(void);
 void aboutScreen(void);
 void teamScreen(void);
 
@@ -17,6 +19,28 @@ void teamScreen(void);
  * Method main
  */
 int main(void){
+    mainScreen();
+    return 0;
+}
+
+////
+// Functions
+
+/**
+ * @author Guilherme Medeiros
+ * Method that clean the terminal
+ */
+void terminalCleaner(void){
+    printf("\n\t\t>>> Press <ENTER> to continue...\n");
+    getchar();
+    system("clear||cls");
+}
+
+/**
+ * @author Guilherme Medeiros
+ * Method that shows the main screen
+ */
+void mainScreen(void){
     int operation;
 
     do {
@@ -35,10 +59,10 @@ int main(void){
         printf("///                                                                         ///\n");
         printf("///                       = = Welcome to SIG-Staff = =                      ///\n");
         printf("///                                                                         ///\n");
-        printf("///             Type (1) to access the system screen                        ///\n");
-        printf("///             Type (2) to access the about screen                         ///\n");
-        printf("///             Type (3) to access the team screen                          ///\n");
-        printf("///             Type (0) to exit the system                                 ///\n");
+        printf("///             Press (1) to access the system options screen               ///\n");
+        printf("///             Press (2) to access the about screen                        ///\n");
+        printf("///             Press (3) to access the team screen                         ///\n");
+        printf("///             Press (0) to exit the system                                ///\n");
         printf("///                                                                         ///\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
@@ -52,9 +76,9 @@ int main(void){
             terminalCleaner();
             switch (operation)
             {
-                // case 1:
-                //     systemScreen();
-                //     break;
+                case 1:
+                    systemOptionsScreen();
+                    break;
                 case 2:
                     aboutScreen();
                     break;
@@ -73,20 +97,39 @@ int main(void){
     } while (operation != 0);
 
     printf("Goodbye!");
-    return 0;
 }
-
-////
-// Functions
 
 /**
  * @author Guilherme Medeiros
- * Method that clean the terminal
+ * Method that shows the options in the system
  */
-void terminalCleaner(void){
-    printf("\n\t\t>>> Press <ENTER> to continue...\n");
-    getchar();
-    system("clear||cls");
+void systemOptionsScreen(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+    printf("///           = = = = =   Type the desired option   = = = = =             ///\n");
+    printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+    printf("///                                                                       ///\n");
+    printf("///            Press (1) to list the staff                                ///\n");
+    printf("///            Press (2) to create new staff                              ///\n");
+    printf("///            Press (3) to search for a specific staff                   ///\n");
+    printf("///            Press (4) to update the staff register                     ///\n");
+    printf("///            Press (5) to delete the staff register                     ///\n");
+    printf("///            Press (0) to return to the main menu                       ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+
+    terminalCleaner();
 }
 
 /**
