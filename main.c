@@ -219,7 +219,7 @@ void teamScreen(void) {
 
 /**
  * @author José Victor
- * Method that shows the developers team screen
+ * Method that list all staff in system
  */
 void listStaffScreen(void){
     printf("\n");
