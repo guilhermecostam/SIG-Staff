@@ -246,6 +246,9 @@ void listStaffScreen(void){
 /**
  * @author José Victor
  * Method that create a new staff in system
+ * 
+ * Note:
+ * What data is needed? Talk to Guilherme.
  */
 void createStaffScreen(void){
     printf("\n");
@@ -261,7 +264,7 @@ void createStaffScreen(void){
         printf("///                                                                       ///\n");
         printf("///                       = = Create new Staff = =                        ///\n");
         printf("///                                                                       ///\n");
-        printf("///     Ver com Guilherme quais dados do funcionário será necessário.     ///\n");
+        printf("///                                   ...                                 ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
