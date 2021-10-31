@@ -242,3 +242,28 @@ void listStaffScreen(void){
         printf("\n");
         terminalCleaner();
 }
+
+/**
+ * @author José Victor
+ * Method that create a new staff in system
+ */
+void createStaffScreen(void){
+    printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///                       = = Create new Staff = =                        ///\n");
+        printf("///                                                                       ///\n");
+        printf("///     Ver com Guilherme quais dados do funcionário será necessário.     ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        terminalCleaner();
+}
