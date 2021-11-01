@@ -273,3 +273,28 @@ void createStaffScreen(void){
         printf("\n");
         terminalCleaner();
 }
+
+/**
+ * @author José Victor
+ * Method that search a staff in system
+ */
+void searchStaffScreen(void){
+    printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///                         = = Search staff = =                          ///\n");
+        printf("///                                                                       ///\n");
+        printf("///          Enter the identifier:                                        ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        terminalCleaner();
+}
