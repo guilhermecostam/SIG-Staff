@@ -264,10 +264,10 @@ void createStaffScreen(void){
         printf("///                         = = Create staff = =                          ///\n");
         printf("///                                                                       ///\n");
         printf("///          ID:                                                          ///\n");
-        printf("///          Nome completo:                                               ///\n");
+        printf("///          Full name:                                                   ///\n");
         printf("///          Email:                                                       ///\n");
-        printf("///          Data de Nascimento (dd/mm/aaaa):                             ///\n");
-        printf("///          Telefone (XX XXXXX-XXXX):                                    ///\n");
+        printf("///          Birth date (mm/dd/aaaa):                                     ///\n");
+        printf("///          Phone (only numbers):                                        ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
