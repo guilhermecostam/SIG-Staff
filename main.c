@@ -323,3 +323,28 @@ void deleteStaffScreen(void){
         printf("\n");
         terminalCleaner();
 }
+
+/**
+ * @author José Victor
+ * Method that update a staff in system
+ */
+void updateStaffScreen(void){
+    printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///                         = = Update staff = =                          ///\n");
+        printf("///                                                                       ///\n");
+        printf("///          Enter the identifier:                                        ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        terminalCleaner();
+}
