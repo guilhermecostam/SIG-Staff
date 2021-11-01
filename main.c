@@ -292,7 +292,7 @@ void searchStaffScreen(void){
         printf("///                                                                       ///\n");
         printf("///                         = = Search staff = =                          ///\n");
         printf("///                                                                       ///\n");
-        printf("///          Enter the identifier:                                        ///\n");
+        printf("///          Enter the identifier (ID):                                   ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
@@ -317,7 +317,7 @@ void deleteStaffScreen(void){
         printf("///                                                                       ///\n");
         printf("///                         = = Delete staff = =                          ///\n");
         printf("///                                                                       ///\n");
-        printf("///          Enter the identifier:                                        ///\n");
+        printf("///          Enter the identifier (ID):                                   ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
@@ -342,7 +342,7 @@ void updateStaffScreen(void){
         printf("///                                                                       ///\n");
         printf("///                         = = Update staff = =                          ///\n");
         printf("///                                                                       ///\n");
-        printf("///          Enter the identifier:                                        ///\n");
+        printf("///          Enter the identifier (ID):                                    ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
