@@ -242,3 +242,34 @@ void listStaffScreen(void){
         printf("\n");
         terminalCleaner();
 }
+
+/**
+ * @author José Victor
+ * Method that create a staff in system
+ * Note:
+ *  What data will be needed? Ask Guilherme.
+ */
+void createStaffScreen(void){
+    printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///                         = = Create staff = =                          ///\n");
+        printf("///                                                                       ///\n");
+        printf("///          ID:                                                          ///\n");
+        printf("///          Nome completo:                                               ///\n");
+        printf("///          Email:                                                       ///\n");
+        printf("///          Data de Nascimento (dd/mm/aaaa):                             ///\n");
+        printf("///          Telefone (XX XXXXX-XXXX):                                    ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        terminalCleaner();
+}
