@@ -298,3 +298,28 @@ void searchStaffScreen(void){
         printf("\n");
         terminalCleaner();
 }
+
+/**
+ * @author José Victor
+ * Method that delete a staff in system
+ */
+void deleteStaffScreen(void){
+    printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///                         = = Delete staff = =                          ///\n");
+        printf("///                                                                       ///\n");
+        printf("///          Enter the identifier:                                        ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        terminalCleaner();
+}
