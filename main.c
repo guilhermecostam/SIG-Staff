@@ -15,6 +15,10 @@ void systemOptionsScreen(void);
 void aboutScreen(void);
 void teamScreen(void);
 void listStaffScreen(void);
+void createStaffScreen(void);
+void searchStaffScreen(void);
+void deleteStaffScreen(void);
+void updateStaffScreen(void);
 
 /**
  * Method main
