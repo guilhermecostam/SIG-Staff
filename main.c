@@ -82,21 +82,29 @@ void mainScreen(void){
             switch (operation)
             {
                 case 1:
+                {
                     systemOptionsScreen();
                     break;
+                }
                 case 2:
+                {
                     aboutScreen();
                     break;
+                }
                 case 3:
+                {
                     teamScreen();
                     break;
+                }
                 default:
+                {
                     printf("\t//////////////////////////////////////////////\n");
                     printf("\t///                                        ///\n");
                     printf("\t///   You have entered an invalid option!  ///\n");
                     printf("\t///                                        ///\n");
                     printf("\t//////////////////////////////////////////////\n");
                     terminalCleaner();
+                }
             }
         }
     } while (operation != 0);
@@ -146,15 +154,39 @@ void systemOptionsScreen(void) {
             
             switch(operation){
                 case 1:
+                {
                     listStaffScreen();
                     break;
+                }
+                case 2:
+                {
+                    createStaffScreen();
+                    break;
+                }
+                case 3:
+                {
+                    searchStaffScreen();
+                    break;
+                }
+                case 4:
+                {
+                    deleteStaffScreen();
+                    break;
+                }
+                case 5:
+                {
+                    updateStaffScreen();
+                    break;
+                }
                 default:
+                {
                     printf("\t//////////////////////////////////////////////\n");
                     printf("\t///                                        ///\n");
                     printf("\t///   You have entered an invalid option!  ///\n");
                     printf("\t///                                        ///\n");
                     printf("\t//////////////////////////////////////////////\n");
                     terminalCleaner();
+                }
             }
         }
     } while(operation != 0);
@@ -346,7 +378,7 @@ void updateStaffScreen(void){
         printf("///                                                                       ///\n");
         printf("///                         = = Update staff = =                          ///\n");
         printf("///                                                                       ///\n");
-        printf("///          Enter the identifier (ID):                                    ///\n");
+        printf("///          Enter the identifier (ID):                                   ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
