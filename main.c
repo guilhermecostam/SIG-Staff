@@ -8,8 +8,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "staffs.c"
 #include "helpers.c"
+#include "validations.c"
 
 void mainScreen(void);
 void systemOptionsScreen(void);

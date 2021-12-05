@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include "staffs.h"
 #include "helpers.h"
+#include "validations.h"
 
 /**
  * @author José Victor
@@ -70,15 +71,29 @@ void createStaffScreen(void){
     printf("///     Id (only numbers):\n\t>>>");
     scanf("%[0-9]", idStaff);
     getchar();
+
     printf("///     Full name:\n\t>>>");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", fullName);
     getchar();
-    printf("///     E-mail:\n\t>>>");
-    scanf("%[A-Za-z0-9@._]", email);
-    getchar();
+
+    do {
+        printf("///     E-mail:\n\t>>>");
+        scanf("%[A-Za-z0-9@._]", email);
+        getchar();
+        emailValidation(email);
+    
+        if (emailValidation(email) == 1){
+            printf("///     Email validated!\n");
+        } else {
+            printf("///     Email invalidated!\n");
+        }
+
+    } while (emailValidation(email) == 0);
+
     printf("///     Position:\n\t>>>");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", position);
     getchar();
+
     printf("///     Phone (only numbers):\n\t>>>");
     scanf("%[0-9]", phone);
     getchar();
