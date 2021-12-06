@@ -3,6 +3,7 @@
     ".sequelizerc": "javascript",
     ".stylelintrc": "json",
     ".prettierrc": "json",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "ctype.h": "c"
   }
 }

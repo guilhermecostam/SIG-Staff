@@ -75,20 +75,10 @@ void createStaffScreen(void){
     printf("///     Full name:\n\t>>>");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", fullName);
     getchar();
-
-    do {
-        printf("///     E-mail:\n\t>>>");
-        scanf("%[A-Za-z0-9@._]", email);
-        getchar();
-        emailValidation(email);
     
-        if (emailValidation(email) == 1){
-            printf("///     Email validated!\n");
-        } else {
-            printf("///     Email invalidated!\n");
-        }
-
-    } while (emailValidation(email) == 0);
+    printf("///     E-mail:\n\t>>>");
+    scanf("%s", email);
+    getchar();
 
     printf("///     Position:\n\t>>>");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", position);

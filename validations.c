@@ -4,18 +4,17 @@
 #include <string.h>
 #include "validations.h"
 
-int emailValidation(char *email){
-  int emailSize = strlen(email);
-  char *emailUser = email;
-  
-  printf("///     %", emailUser);
-  printf("\n");
+// int emailValidation(char *email){
+//   int isValid = 0;
+//   for (int i = 0; i < strlen(email); i++){
+//     if(email[i] == '@'){
+//       isValid++;
+//     }
 
-  for (int i = 0; i < emailSize; i++){
-    if (emailUser == "%[A-Za-z0-9@._]"){
-      return 1;
-    } else {
-      return 0;
-    }
-  }
-}
+//     if(isValid == 1){
+//       return 1;
+//     }else{
+//       return 0;
+//     }
+//   }
+// }
