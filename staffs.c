@@ -46,11 +46,10 @@ void listStaffScreen(void){
  *  What data will be needed? Ask Guilherme.
  */
 void createStaffScreen(void){
-    char idStaff[12];
-    char fullName[51];
-    char email[51];
+    char name[51];
+    char cpf[14];
     char position[15];
-    char phone[12];
+    char phone[11];
 
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -68,25 +67,27 @@ void createStaffScreen(void){
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 
-    printf("///     Id (only numbers):\n\t>>>");
-    scanf("%[0-9]", idStaff);
-    getchar();
+    do {
+        printf("///     Full name:\n\t>>>");
+        scanf("%[^\n]", name);
+        getchar();
+    } while (!nameValidation(name));
 
-    printf("///     Full name:\n\t>>>");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", fullName);
-    getchar();
-    
-    printf("///     E-mail:\n\t>>>");
-    scanf("%s", email);
-    getchar();
+    do {
+        printf("///     CPF (only numbers):\n\t>>>");
+        scanf("%[A-Za-z0-9@._]", cpf);
+        getchar();
+    } while (!validateCPF(cpf));
 
     printf("///     Position:\n\t>>>");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", position);
     getchar();
 
-    printf("///     Phone (only numbers):\n\t>>>");
-    scanf("%[0-9]", phone);
-    getchar();
+    do {
+        printf("///     Phone (only numbers):\n\t>>>");
+        scanf("%[0-9]", phone);
+        getchar();
+    } while (!phoneValidation(phone));
     //processamento
 
     terminalCleaner();

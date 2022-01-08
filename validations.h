@@ -6,7 +6,8 @@
 ///           Developed by @guilhermecostam and @victormedeiros1            ///
 ///////////////////////////////////////////////////////////////////////////////
 
-int emailValidation(char *email);
+int validateCPF(char *cpf);
+int equalsDigitCPF(int *cpf);
 int onlyNumbers(char digit);
 int phoneValidation(char *digit);
-int nameValidation(char name[21]);
+int nameValidation(char name[51]);
