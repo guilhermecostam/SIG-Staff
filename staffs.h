@@ -6,8 +6,27 @@
 ///           Developed by @guilhermecostam and @victormedeiros1            ///
 ///////////////////////////////////////////////////////////////////////////////
 
+///// Structs
+
+typedef struct staff Staff;
+
+struct staff {
+    char name[51];
+    char cpf[14];
+    char position[15];
+    char phone[11];
+};
+
+///// Assinatura das funções
+
 void listStaffScreen(void);
-void createStaffScreen(void);
+Staff* createStaffScreen(void);
 void searchStaffScreen(void);
 void deleteStaffScreen(void);
 void updateStaffScreen(void);
+void fileErrorScreen(void);
+
+void createStaff(void);
+
+Staff* searchStaff(char* cpf);
+void saveStaff(Staff* staff);

@@ -148,7 +148,7 @@ void systemOptionsScreen(void) {
                 }
                 case 2:
                 {
-                    createStaffScreen();
+                    createStaff();
                     break;
                 }
                 case 3:

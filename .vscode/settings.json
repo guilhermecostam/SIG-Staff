@@ -4,6 +4,7 @@
     ".stylelintrc": "json",
     ".prettierrc": "json",
     "stdlib.h": "c",
-    "ctype.h": "c"
+    "ctype.h": "c",
+    "typeinfo": "c"
   }
 }
