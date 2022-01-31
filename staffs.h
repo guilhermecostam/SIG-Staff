@@ -31,6 +31,7 @@ void showStaff(Staff* staff);
 Staff* editStaff(Staff* staff);
 void deleteStaff(void);
 void rewriteStaff(Staff* staff);
+Staff* listStaff(void);
 
 Staff* searchStaff(char* cpf);
 void saveStaff(Staff* staff);

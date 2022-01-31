@@ -43,6 +43,26 @@ void listStaffScreen(void){
 }
 
 /**
+ * @author Guilherme Medeiros
+ * Method that list all staff in system
+ */
+Staff* listStaff(void) {
+    FILE* fp;
+    int bufferLength = 255;
+    char buffer[bufferLength];
+
+    fp = fopen("staff.dat", "r");
+    if (fp == NULL) {
+        fileErrorScreen();
+    }
+
+    while(fgets(buffer, bufferLength, fp)) {
+        printf("%s\n", buffer);
+    }
+    fclose(fp);
+}
+
+/**
  * @author Guilherme Costa
  * Method that create a staff in system
  */
