@@ -126,7 +126,7 @@ void systemOptionsScreen(void) {
         printf("///                                                                       ///\n");
         printf("///            Press (1) to list of staff                                 ///\n");
         printf("///            Press (2) to create new staff                              ///\n");
-        printf("///            Press (3) to search for a specific staff                   ///\n");
+        printf("///            Press (3) to find for a specific staff                     ///\n");
         printf("///            Press (4) to update the staff register                     ///\n");
         printf("///            Press (5) to delete the staff register                     ///\n");
         printf("///            Press (0) to return to the main menu                       ///\n");
@@ -153,17 +153,17 @@ void systemOptionsScreen(void) {
                 }
                 case 3:
                 {
-                    searchStaffScreen();
+                    findStaffScreen();
                     break;
                 }
                 case 4:
                 {
-                    deleteStaffScreen();
+                    updateStaffScreen();
                     break;
                 }
                 case 5:
                 {
-                    updateStaffScreen();
+                    deleteStaffScreen();
                     break;
                 }
                 default:

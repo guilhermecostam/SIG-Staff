@@ -191,9 +191,9 @@ Staff* createStaffScreen(void){
 
 /**
  * @author José Victor
- * Method that search a staff in system
+ * Method that find a staff in system
  */
-void searchStaffScreen(void){
+void findStaffScreen(void){
     char idStaff[12];
 
     printf("\n");
