@@ -213,7 +213,7 @@ void findStaff(void) {
  */
 char* findStaffScreen(void) {
     char* cpf;
-    cpf = (char*) malloc(19*sizeof(char));
+    cpf = (char*) malloc(12*sizeof(char));
     
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -291,6 +291,150 @@ void showStaff(Staff* staff) {
 }
 
 /**
+ * @author Guilherme Medeiros
+ * Method that update a staff in system
+ */
+void updateStaff(void) {
+    Staff* staff;
+    char* cpf;
+
+    cpf = updateStaffScreen();
+    staff = searchStaff(cpf);
+    editStaff(staff);
+}
+
+/**
+ * @author José Victor
+ * Method that show the update staff screen
+ */
+char* updateStaffScreen(void) {
+    char* cpf;
+    cpf = (char*) malloc(12*sizeof(char));
+    
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///                          = = Update Staff = =                         ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n"); 
+    printf("///                                                                       ///\n");
+    do {
+        printf("///     # Enter the staff CPF:\n\t>>>");
+        scanf("%[A-Za-z0-9@._]", cpf);
+        getchar();
+    } while (!validateCPF(cpf));
+
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               You will be redirected to the update screen ... ");
+    sleep(1);
+    
+    return cpf;
+}
+
+/**
+ * @author José Victor
+ * Method that update a staff in system
+ */
+void editStaff(Staff* staff) { 
+    system("clear||cls"); 
+    int editChoice;
+
+    do {
+        editChoice = 0;
+        printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+        printf("///           = = = = =   Type the desired option   = = = = =             ///\n");
+        printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+        printf("///                                                                       ///\n");
+        printf("///            Press (1) to edit the staff name                           ///\n");
+        printf("///            Press (2) to edit the staff CPF                            ///\n");
+        printf("///            Press (3) to edit the staff position                       ///\n");
+        printf("///            Press (4) to edit the staff phone                          ///\n");
+        printf("///            Press (0) to return to the main menu                       ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("\n");
+
+        printf("Type the operation you want:\n\t>>>");
+        scanf("%d", &editChoice);
+        printf("\n");
+        if(editChoice != 0){
+            terminalCleaner();
+            
+            switch(editChoice){
+                case 1:
+                {
+                    do {
+                        printf("///     Full name:\n\t>>>");
+                        scanf("%[^\n]", staff->name);
+                        getchar();
+                    } while (!nameValidation(staff->name));
+                    break;
+                }
+                case 2:
+                {
+                    do {
+                        printf("///     CPF (only numbers):\n\t>>>");
+                        scanf("%[A-Za-z0-9@._]", staff->cpf);
+                        getchar();
+                    } while (!validateCPF(staff->cpf));
+                    break;
+                }
+                case 3:
+                {
+                    printf("///     Position:\n\t>>>");
+                    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", staff->position);
+                    getchar();
+                    break;
+                }
+                case 4:
+                {
+                    do {
+                        printf("///     Phone (only numbers):\n\t>>>");
+                        scanf("%[0-9]", staff->phone);
+                        getchar();
+                    } while (!phoneValidation(staff->phone));
+                    break;
+                }
+                default:
+                {
+                    printf("\t//////////////////////////////////////////////\n");
+                    printf("\t///                                        ///\n");
+                    printf("\t///   You have entered an invalid option!  ///\n");
+                    printf("\t///                                        ///\n");
+                    printf("\t//////////////////////////////////////////////\n");
+                    terminalCleaner();
+                }
+            }
+        }
+    } while(editChoice != 0);
+
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    terminalCleaner();
+}
+
+/**
  * @author José Victor
  * Method that delete a staff in system
  */
@@ -316,40 +460,6 @@ void deleteStaffScreen(void){
     printf("\n");
 
     printf("Type the id of the staff you want delete:\n\t>>> ");
-    scanf("%[0-9]", idStaff);
-    getchar();
-    // processamento
-    printf("\n");
-
-    terminalCleaner();
-}
-
-/**
- * @author José Victor
- * Method that update a staff in system
- */
-void updateStaffScreen(void){
-    char idStaff[12];
-
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                       ///\n");
-    printf("///          ===================================================          ///\n");
-    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-    printf("///          = = = =              SIG-Staff              = = = =          ///\n");
-    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-    printf("///          ===================================================          ///\n");
-    printf("///                                                                       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                       ///\n");
-    printf("///                         = = Update staff = =                          ///\n");
-    printf("///                                                                       ///\n");
-    printf("///          Enter the identifier (ID):                                   ///\n");
-    printf("///                                                                       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-
-    printf("Type the id of the staff you want update:\n\t>>> ");
     scanf("%[0-9]", idStaff);
     getchar();
     // processamento

@@ -65,25 +65,6 @@ int validateCPF(char *cpf)
 }
 
 /**
- * @author Guilherme Medeiros
- * Method that checks if all the digits of the CPF are the same
- */
-// int equalsDigitCPF(int *cpf){
-    
-//     int i;
-//     int first = cpf[0];
-
-//     for (i = 0; i < 10; i++)
-//     {
-//         if (first != cpf[i+1])
-//         {
-//             return 0;
-//         }
-//     }
-//     return 1;
-// }
-
-/**
  * @author José Victor
  * Method that validate char is composed of digits
  */

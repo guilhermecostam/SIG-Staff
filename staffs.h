@@ -12,7 +12,7 @@ typedef struct staff Staff;
 
 struct staff {
     char name[51];
-    char cpf[14];
+    char cpf[12];
     char position[15];
     char phone[11];
 };
@@ -22,12 +22,13 @@ struct staff {
 void listStaffScreen(void); // falta
 Staff* createStaffScreen(void);
 char* findStaffScreen(void); // falta
-void updateStaffScreen(void); // falta
+char* updateStaffScreen(void); // falta
 void deleteStaffScreen(void); // falta
 void fileErrorScreen(void);
 
 void createStaff(void);
 void showStaff(Staff* staff);
+void editStaff(Staff* staff);
 
 Staff* searchStaff(char* cpf);
 void saveStaff(Staff* staff);
