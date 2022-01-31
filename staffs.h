@@ -23,13 +23,17 @@ void listStaffScreen(void); // falta
 Staff* createStaffScreen(void);
 char* findStaffScreen(void); // falta
 char* updateStaffScreen(void); // falta
-void deleteStaffScreen(void); // falta
+char* deleteStaffScreen(void); // falta
 void fileErrorScreen(void);
 
 void createStaff(void);
 void showStaff(Staff* staff);
 void editStaff(Staff* staff);
+void deleteStaff(void);
 
 Staff* searchStaff(char* cpf);
 void saveStaff(Staff* staff);
 void findStaff(void);
+void deleteSelectedStaff(Staff* staff);
+int sureDeleteStaff(Staff* staff);
+void successStaffDeleted(void);

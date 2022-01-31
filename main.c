@@ -158,12 +158,12 @@ void systemOptionsScreen(void) {
                 }
                 case 4:
                 {
-                    updateStaffScreen();
+                    updateStaff();
                     break;
                 }
                 case 5:
                 {
-                    deleteStaffScreen();
+                    deleteStaff();
                     break;
                 }
                 default:

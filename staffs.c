@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "staffs.h"
 #include "helpers.h"
@@ -263,19 +264,15 @@ void showStaff(Staff* staff) {
     printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
     printf("///          ===================================================          ///\n");
     printf("///                                                                       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                       ///\n");
-    printf("///                             = = Staff = =                             ///\n");
-    printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n"); 
     printf("///                                                                       ///\n");
 
-	if (staff == NULL) {
-    printf("///             ###############################################           ///\n");
-    printf("///             ####                                       ####           ///\n");
-    printf("///             ####             MISSING STAFF!            ####           ///\n");
-    printf("///             ####                                       ####           ///\n");
-    printf("///             ###############################################           ///\n");
+    if (staff == NULL) {
+        printf("///             ###############################################           ///\n");
+        printf("///             ####                                       ####           ///\n");
+        printf("///             ####             MISSING STAFF!            ####           ///\n");
+        printf("///             ####                                       ####           ///\n");
+        printf("///             ###############################################           ///\n");
 
 	} else {
         printf("///            -> Staff informations:                                     ///\n");
@@ -336,12 +333,13 @@ char* updateStaffScreen(void) {
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               You will be redirected to the update screen ... ");
     sleep(1);
+    terminalCleaner();
     
     return cpf;
 }
 
 /**
- * @author José Victor
+ * @author Guilherme Medeiros
  * Method that update a staff in system
  */
 void editStaff(Staff* staff) { 
@@ -435,12 +433,27 @@ void editStaff(Staff* staff) {
 }
 
 /**
- * @author José Victor
+ * @author Guilherme Medeiros
  * Method that delete a staff in system
  */
-void deleteStaffScreen(void){
-    char idStaff[12];
+void deleteStaff(void) {
+    Staff* staff;
+	char* cpf;
 
+	cpf = deleteStaffScreen();
+    staff = searchStaff(cpf);
+    deleteSelectedStaff(staff);
+}
+
+/**
+ * @author José Victor
+ * Method that show the delete staff screen
+ */
+char* deleteStaffScreen(void) {
+    char* cpf;
+    cpf = (char*) malloc(12*sizeof(char));
+
+    system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                       ///\n");
@@ -452,18 +465,124 @@ void deleteStaffScreen(void){
     printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                       ///\n");
-    printf("///                         = = Delete staff = =                          ///\n");
+    printf("///                          = = Delete Staff = =                         ///\n");
     printf("///                                                                       ///\n");
-    printf("///          Enter the identifier (ID):                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n"); 
+    printf("///                                                                       ///\n");
+    do {
+        printf("///     # Enter the staff CPF:\n\t>>>");
+        scanf("%[A-Za-z0-9@._]", cpf);
+        getchar();
+    } while (!validateCPF(cpf));
+
     printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-
-    printf("Type the id of the staff you want delete:\n\t>>> ");
-    scanf("%[0-9]", idStaff);
-    getchar();
-    // processamento
-    printf("\n");
-
+    printf("\n                 The staff is being excluded ... ");
+    sleep(1);
     terminalCleaner();
+    
+    return cpf;
+}
+
+/**
+ * @author Guilherme Medeiros
+ * Method that delete the selected staff in system
+ */
+void deleteSelectedStaff(Staff* staff){
+    FILE* fp;
+    Staff* staffArq;
+
+    if (staff == NULL) {
+        system("clear||cls");
+        printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///             ###############################################           ///\n");
+        printf("///             ####                                       ####           ///\n");
+        printf("///             ####             MISSING STAFF!            ####           ///\n");
+        printf("///             ####                                       ####           ///\n");
+        printf("///             ###############################################           ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        terminalCleaner();
+    } else {
+        if(sureDeleteStaff(staff)){
+            staffArq = (Staff*) malloc(sizeof(Staff));
+            fp = fopen("staff.dat", "r+b");
+            if (fp == NULL) {
+                fileErrorScreen();
+                exit(1);
+            }
+            
+            while(fread(staffArq, sizeof(Staff), 1, fp)) {
+                if ((strcmp(staffArq->cpf, staff->cpf) == 0)) {
+                    fseek(fp, -1*sizeof(Staff), SEEK_CUR);
+                    fwrite(staffArq, sizeof(Staff), 1, fp);
+                    successStaffDeleted();
+                }
+            }
+            fclose(fp);
+        }
+    }
+}
+
+int sureDeleteStaff(Staff* staff){
+    char resp;
+    system("clear||cls");
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///            -> Staff informations:                                     ///\n");
+    printf("///                                                                       ///\n");
+    printf("///            . Name: %s\n", staff->name);
+    printf("///            . Position: %s\n", staff->position);
+    printf("///            . CPF: %s\n", staff->cpf);
+    printf("///            . Phone: %s\n",staff->phone);
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Are you SURE you want to exclude this staff (s/n)?  ");
+    scanf("%c",&resp);
+    getchar();
+
+    if(tolower(resp) == 's'){
+        return 1;
+    }
+    return 0;
+}
+
+void successStaffDeleted(void){
+        system("clear||cls");
+        printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+        printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+        printf("///          ===================================================          ///\n");
+        printf("///                                                                       ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                       ///\n");
+        printf("///             ###############################################           ///\n");
+        printf("///             ####                                       ####           ///\n");
+        printf("///             ####      STAFF SUCCESSFULLY DELETED!!     ####           ///\n");
+        printf("///             ####                                       ####           ///\n");
+        printf("///             ###############################################           ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////////\n");
+        terminalCleaner();
 }
