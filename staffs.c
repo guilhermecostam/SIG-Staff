@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 #include "staffs.h"
 #include "helpers.h"
@@ -77,22 +78,22 @@ void createStaff(void) {
  * Method that search a staff in system
  */
 Staff* searchStaff(char* cpf) {
-	FILE* fp;
-	Staff* staff;
+    FILE* fp;
+    Staff* staff;
 
-	staff = (Staff*) malloc(sizeof(Staff));
-	fp = fopen("staff.dat", "rb");
-	if (fp == NULL) {
-		fileErrorScreen();
-	}
-	while(fread(staff, sizeof(Staff), 1, fp)) {
-		if ((strcmp(staff->cpf, cpf) == 0)) {
-			fclose(fp);
-			return staff;
-		}
-	}
-	fclose(fp);
-	return NULL;
+    staff = (Staff*) malloc(sizeof(Staff));
+    fp = fopen("staff.dat", "rb");
+    if (fp == NULL) {
+        fileErrorScreen();
+    }
+    while(fread(staff, sizeof(Staff), 1, fp)) {
+        if ((strcmp(staff->cpf, cpf) == 0)) {
+            fclose(fp);
+            return staff;
+        }
+    }
+    fclose(fp);
+    return NULL;
 }
 
 /**
@@ -128,14 +129,14 @@ void fileErrorScreen(void) {
  * Method that save a staff in system
  */
 void saveStaff(Staff* staff) {
-	FILE* fp;
+    FILE* fp;
 
-	fp = fopen("staff.dat", "ab");
-	if (fp == NULL) {
-		fileErrorScreen();
-	}
-	fwrite(staff, sizeof(Staff), 1, fp);
-	fclose(fp);
+    fp = fopen("staff.dat", "ab");
+    if (fp == NULL) {
+        fileErrorScreen();
+    }
+    fwrite(staff, sizeof(Staff), 1, fp);
+    fclose(fp);
 }
 
 /**
@@ -183,19 +184,37 @@ Staff* createStaffScreen(void){
         scanf("%[0-9]", staff->phone);
         getchar();
     } while (!phoneValidation(staff->phone));
-    //processamento
-
+    
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Wait while the staff is created ...                            ");
+    sleep(1);
     terminalCleaner();
+
     return staff;
 }
 
 /**
- * @author José Victor
+ * @author Guilherme Medeiros
  * Method that find a staff in system
  */
-void findStaffScreen(void){
-    char idStaff[12];
+void findStaff(void) {
+    Staff* staff;
+    char* cpf;
 
+    cpf = findStaffScreen();
+    staff = searchStaff(cpf);
+    showStaff(staff);
+}
+
+/**
+ * @author José Victor
+ * Method that show the find staff screen
+ */
+char* findStaffScreen(void) {
+    char* cpf;
+    cpf = (char*) malloc(19*sizeof(char));
+    
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                       ///\n");
@@ -209,17 +228,65 @@ void findStaffScreen(void){
     printf("///                                                                       ///\n");
     printf("///                         = = Search staff = =                          ///\n");
     printf("///                                                                       ///\n");
-    printf("///          Enter the identifier (ID):                                   ///\n");
+    printf("///          Enter the identifier (CPF):                                  ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n"); 
+
+    printf("///                                                                         ///\n");
+    do {
+        printf("///     # Enter the staff CPF:\n\t>>>");
+        scanf("%[A-Za-z0-9@._]", cpf);
+        getchar();
+    } while (!validateCPF(cpf));
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . You will be redirected to this staff details ... ");
+    sleep(1);
+    terminalCleaner();
+    
+    return cpf;
+}
+
+/**
+ * @author Guilherme Medeiros
+ * Method that shows a staff
+ */
+void showStaff(Staff* staff) {
+    system("clear||cls");
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("///          ===================================================          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          = = = =              SIG-Staff              = = = =          ///\n");
+    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+    printf("///          ===================================================          ///\n");
     printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
+    printf("///                                                                       ///\n");
+    printf("///                             = = Staff = =                             ///\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n"); 
+    printf("///                                                                       ///\n");
 
-    printf("Type the id of the staff you want search:\n\t>>> ");
-    scanf("%[0-9]", idStaff);
-    getchar();
-    // processamento
-    printf("\n");
+	if (staff == NULL) {
+    printf("///             ###############################################           ///\n");
+    printf("///             ####                                       ####           ///\n");
+    printf("///             ####             MISSING STAFF!            ####           ///\n");
+    printf("///             ####                                       ####           ///\n");
+    printf("///             ###############################################           ///\n");
 
+	} else {
+        printf("///            -> Staff informations:                                     ///\n");
+        printf("///                                                                       ///\n");
+        printf("///            . Name: %s\n", staff->name);
+        printf("///            . Position: %s\n", staff->position);
+        printf("///            . CPF: %s\n", staff->cpf);
+        printf("///            . Phone: %s\n",staff->phone);
+    }
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
     terminalCleaner();
 }
 

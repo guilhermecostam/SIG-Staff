@@ -153,7 +153,7 @@ void systemOptionsScreen(void) {
                 }
                 case 3:
                 {
-                    findStaffScreen();
+                    findStaff();
                     break;
                 }
                 case 4:

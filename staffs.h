@@ -21,12 +21,14 @@ struct staff {
 
 void listStaffScreen(void); // falta
 Staff* createStaffScreen(void);
-void findStaffScreen(void); // falta
+char* findStaffScreen(void); // falta
 void updateStaffScreen(void); // falta
 void deleteStaffScreen(void); // falta
 void fileErrorScreen(void);
 
 void createStaff(void);
+void showStaff(Staff* staff);
 
 Staff* searchStaff(char* cpf);
 void saveStaff(Staff* staff);
+void findStaff(void);
