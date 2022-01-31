@@ -19,17 +19,18 @@ struct staff {
 
 ///// Assinatura das funções
 
-void listStaffScreen(void); // falta
+void listStaffScreen(void);
 Staff* createStaffScreen(void);
-char* findStaffScreen(void); // falta
-char* updateStaffScreen(void); // falta
-char* deleteStaffScreen(void); // falta
+char* findStaffScreen(void);
+char* updateStaffScreen(void);
+char* deleteStaffScreen(void);
 void fileErrorScreen(void);
 
 void createStaff(void);
 void showStaff(Staff* staff);
-void editStaff(Staff* staff);
+Staff* editStaff(Staff* staff);
 void deleteStaff(void);
+void rewriteStaff(Staff* staff);
 
 Staff* searchStaff(char* cpf);
 void saveStaff(Staff* staff);

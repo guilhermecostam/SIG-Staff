@@ -18,7 +18,7 @@
 
 /**
  * @author José Victor
- * Method that list all staff in system
+ * Method that shows the list all staff screen
  */
 void listStaffScreen(void){
     printf("\n");
@@ -33,9 +33,8 @@ void listStaffScreen(void){
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                       ///\n");
     printf("///                         = = List of Staff = =                         ///\n");
-    for(int i = 0; i < 5; i++){
-        printf("///                                   %d                                   ///\n", i);
-    }
+    printf("///                                                                       ///\n");
+    listStaff();
     printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -297,7 +296,9 @@ void updateStaff(void) {
 
     cpf = updateStaffScreen();
     staff = searchStaff(cpf);
-    editStaff(staff);
+    staff = editStaff(staff);
+    strcpy(staff->cpf, cpf);
+    rewriteStaff(staff);
 }
 
 /**
@@ -342,7 +343,7 @@ char* updateStaffScreen(void) {
  * @author Guilherme Medeiros
  * Method that update a staff in system
  */
-void editStaff(Staff* staff) { 
+Staff* editStaff(Staff* staff) { 
     system("clear||cls"); 
     int editChoice;
 
@@ -367,7 +368,7 @@ void editStaff(Staff* staff) {
         printf("///            Press (2) to edit the staff CPF                            ///\n");
         printf("///            Press (3) to edit the staff position                       ///\n");
         printf("///            Press (4) to edit the staff phone                          ///\n");
-        printf("///            Press (0) to return to the main menu                       ///\n");
+        printf("///            Press (0) return to menu and save edit                     ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("///                                                                       ///\n");
@@ -429,7 +430,34 @@ void editStaff(Staff* staff) {
 
     printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               Wait, this staff is being edited in the system ... ");
+    sleep(1);
     terminalCleaner();
+
+    return staff;
+}
+
+/**
+ * @author Guilherme Medeiros
+ * Method that rewrite the staff in system
+ */
+void rewriteStaff(Staff* staff) {
+    FILE* fp;
+    Staff* staffArq;
+
+    staffArq = (Staff*) malloc(sizeof(Staff));
+    fp = fopen("staff.dat", "r+b");
+    if (fp == NULL) {
+        fileErrorScreen();
+    }
+
+    while(fread(staffArq, sizeof(Staff), 1, fp)) {
+        if (strcmp(staffArq->cpf, staff->cpf) == 0) {
+            fseek(fp, -1*sizeof(Staff), SEEK_CUR);
+            fwrite(staff, sizeof(Staff), 1, fp);
+        }
+    }
+    fclose(fp);
 }
 
 /**
@@ -533,6 +561,10 @@ void deleteSelectedStaff(Staff* staff){
     }
 }
 
+/**
+ * @author Guilherme Medeiros
+ * Method that show screen of you sure to delete a staff
+ */
 int sureDeleteStaff(Staff* staff){
     char resp;
     system("clear||cls");
@@ -565,6 +597,10 @@ int sureDeleteStaff(Staff* staff){
     return 0;
 }
 
+/**
+ * @author Guilherme Medeiros
+ * Method that show screen of succes to delete a staff
+ */
 void successStaffDeleted(void){
         system("clear||cls");
         printf("\n");
