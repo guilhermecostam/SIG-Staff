@@ -19,7 +19,6 @@ struct staff {
 
 ///// Assinatura das funções
 
-void listStaffScreen(void);
 Staff* createStaffScreen(void);
 char* findStaffScreen(void);
 char* updateStaffScreen(void);
@@ -31,7 +30,6 @@ void showStaff(Staff* staff);
 Staff* editStaff(Staff* staff);
 void deleteStaff(void);
 void rewriteStaff(Staff* staff);
-Staff* listStaff(void);
 
 Staff* searchStaff(char* cpf);
 void saveStaff(Staff* staff);

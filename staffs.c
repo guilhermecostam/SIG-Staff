@@ -17,52 +17,6 @@
 #include "validations.h"
 
 /**
- * @author José Victor
- * Method that shows the list all staff screen
- */
-void listStaffScreen(void){
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                       ///\n");
-    printf("///          ===================================================          ///\n");
-    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-    printf("///          = = = =              SIG-Staff              = = = =          ///\n");
-    printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-    printf("///          ===================================================          ///\n");
-    printf("///                                                                       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                       ///\n");
-    printf("///                         = = List of Staff = =                         ///\n");
-    printf("///                                                                       ///\n");
-    listStaff();
-    printf("///                                                                       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-
-    terminalCleaner();
-}
-
-/**
- * @author Guilherme Medeiros
- * Method that list all staff in system
- */
-Staff* listStaff(void) {
-    FILE* fp;
-    int bufferLength = 255;
-    char buffer[bufferLength];
-
-    fp = fopen("staff.dat", "r");
-    if (fp == NULL) {
-        fileErrorScreen();
-    }
-
-    while(fgets(buffer, bufferLength, fp)) {
-        printf("%s\n", buffer);
-    }
-    fclose(fp);
-}
-
-/**
  * @author Guilherme Costa
  * Method that create a staff in system
  */
@@ -91,6 +45,7 @@ void createStaff(void) {
         printf("\n");
         terminalCleaner();
     }
+    free(staff);
 }
 
 /**
@@ -225,6 +180,8 @@ void findStaff(void) {
     cpf = findStaffScreen();
     staff = searchStaff(cpf);
     showStaff(staff);
+    free(cpf);
+    free(staff);
 }
 
 /**
@@ -252,15 +209,15 @@ char* findStaffScreen(void) {
     printf("///                                                                       ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n"); 
 
-    printf("///                                                                         ///\n");
+    printf("///                                                                       ///\n");
     do {
         printf("///     # Enter the staff CPF:\n\t>>>");
         scanf("%[A-Za-z0-9@._]", cpf);
         getchar();
     } while (!validateCPF(cpf));
 
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              . You will be redirected to this staff details ... ");
     sleep(1);
     terminalCleaner();
@@ -319,6 +276,8 @@ void updateStaff(void) {
     staff = editStaff(staff);
     strcpy(staff->cpf, cpf);
     rewriteStaff(staff);
+    free(cpf);
+    free(staff);
 }
 
 /**
@@ -478,6 +437,7 @@ void rewriteStaff(Staff* staff) {
         }
     }
     fclose(fp);
+    free(staffArq);
 }
 
 /**
@@ -491,6 +451,8 @@ void deleteStaff(void) {
 	cpf = deleteStaffScreen();
     staff = searchStaff(cpf);
     deleteSelectedStaff(staff);
+    free(cpf);
+    free(staff);
 }
 
 /**

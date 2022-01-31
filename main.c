@@ -124,11 +124,10 @@ void systemOptionsScreen(void) {
         printf("///           = = = = =   Type the desired option   = = = = =             ///\n");
         printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
         printf("///                                                                       ///\n");
-        printf("///            Press (1) to list of staff                                 ///\n");
-        printf("///            Press (2) to create new staff                              ///\n");
-        printf("///            Press (3) to find for a specific staff                     ///\n");
-        printf("///            Press (4) to update the staff register                     ///\n");
-        printf("///            Press (5) to delete the staff register                     ///\n");
+        printf("///            Press (1) to create new staff                              ///\n");
+        printf("///            Press (2) to find for a specific staff                     ///\n");
+        printf("///            Press (3) to update the staff register                     ///\n");
+        printf("///            Press (4) to delete the staff register                     ///\n");
         printf("///            Press (0) to return to the main menu                       ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -143,25 +142,20 @@ void systemOptionsScreen(void) {
             switch(operation){
                 case 1:
                 {
-                    listStaffScreen();
+                    createStaff();
                     break;
                 }
                 case 2:
                 {
-                    createStaff();
+                    findStaff();
                     break;
                 }
                 case 3:
                 {
-                    findStaff();
-                    break;
-                }
-                case 4:
-                {
                     updateStaff();
                     break;
                 }
-                case 5:
+                case 4:
                 {
                     deleteStaff();
                     break;
