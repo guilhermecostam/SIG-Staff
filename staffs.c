@@ -62,7 +62,7 @@ Staff* searchStaff(char* cpf) {
         fileErrorScreen();
     }
     while(fread(staff, sizeof(Staff), 1, fp)) {
-        if ((strcmp(staff->cpf, cpf) == 0)) {
+        if ((strcmp(staff->cpf, cpf) == 0)  && (staff->deleted == '0')) {
             fclose(fp);
             return staff;
         }
@@ -160,6 +160,7 @@ Staff* createStaffScreen(void){
         getchar();
     } while (!phoneValidation(staff->phone));
     
+    staff->deleted = '0';
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              . Wait while the staff is created ...                            ");
@@ -431,7 +432,7 @@ void rewriteStaff(Staff* staff) {
     }
 
     while(fread(staffArq, sizeof(Staff), 1, fp)) {
-        if (strcmp(staffArq->cpf, staff->cpf) == 0) {
+        if (strcmp(staffArq->cpf, staff->cpf) == 0  && (staffArq->deleted == '0')) {
             fseek(fp, -1*sizeof(Staff), SEEK_CUR);
             fwrite(staff, sizeof(Staff), 1, fp);
         }
@@ -532,7 +533,8 @@ void deleteSelectedStaff(Staff* staff){
             }
             
             while(fread(staffArq, sizeof(Staff), 1, fp)) {
-                if ((strcmp(staffArq->cpf, staff->cpf) == 0)) {
+                if ((strcmp(staffArq->cpf, staff->cpf) == 0  && (staffArq->deleted == '0'))) {
+                    staffArq->deleted = '1';
                     fseek(fp, -1*sizeof(Staff), SEEK_CUR);
                     fwrite(staffArq, sizeof(Staff), 1, fp);
                     successStaffDeleted();

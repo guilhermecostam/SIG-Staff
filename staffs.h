@@ -15,6 +15,7 @@ struct staff {
     char cpf[12];
     char position[15];
     char phone[11];
+    char deleted;
 };
 
 ///// Assinatura das funções
