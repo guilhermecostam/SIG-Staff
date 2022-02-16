@@ -9,9 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "staffs.c"
-#include "helpers.c"
-#include "validations.c"
+#include "staffs.h"
+#include "helpers.h"
+#include "validations.h"
 
 void mainScreen(void);
 void systemOptionsScreen(void);

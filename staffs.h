@@ -26,6 +26,7 @@ char* updateStaffScreen(void);
 char* deleteStaffScreen(void);
 void fileErrorScreen(void);
 
+void updateStaff(void);
 void createStaff(void);
 void showStaff(Staff* staff);
 Staff* editStaff(Staff* staff);
