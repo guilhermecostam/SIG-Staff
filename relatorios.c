@@ -33,6 +33,7 @@ void listStaffOptionsScreen(void) {
         printf("///                                                                       ///\n");
         printf("///            Press (1) to list all staff                                ///\n");
         printf("///            Press (2) to list staff for alphabetic order               ///\n");
+        printf("///            Press (0) to return to the main menu                       ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
         printf("\n");
