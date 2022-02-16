@@ -69,7 +69,19 @@ void listStaffOptionsScreen(void) {
 }
 
 void listStaff(void){
-  printf("TESTE LIST");
+    FILE* fp;
+    Staff* staff;
+    staff = (Staff*) malloc(sizeof(Staff));
+    fp = fopen("staff.dat", "rb");
+    while (fread(staff, sizeof(Staff), 1, fp)) {
+        printf("///           Name: %s                                                    \n", staff->name);
+        printf("///           CPF: %s                                                   \n", staff->cpf);
+        printf("///           Position: %s                                                  \n", staff->position);
+        printf("///           Phone: %s                                     \n", staff->phone);
+        printf("-----------------------------------------------------------------------------\n");
+    }
+    fclose(fp);
+    free(staff);
 }
 void listStaffAlphabetic(void){
   printf("TESTE ALPHABETIC");
