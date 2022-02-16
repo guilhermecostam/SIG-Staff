@@ -12,6 +12,7 @@
 #include "staffs.h"
 #include "helpers.h"
 #include "validations.h"
+#include "relatorios.h"
 
 void mainScreen(void);
 void systemOptionsScreen(void);
@@ -128,6 +129,7 @@ void systemOptionsScreen(void) {
         printf("///            Press (2) to find for a specific staff                     ///\n");
         printf("///            Press (3) to update the staff register                     ///\n");
         printf("///            Press (4) to delete the staff register                     ///\n");
+        printf("///            Press (5) to list the staff register                       ///\n");
         printf("///            Press (0) to return to the main menu                       ///\n");
         printf("///                                                                       ///\n");
         printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -160,6 +162,9 @@ void systemOptionsScreen(void) {
                     deleteStaff();
                     break;
                 }
+                case 5: 
+                    listStaffOptionsScreen();
+                    break;
                 default:
                 {
                     printf("\t//////////////////////////////////////////////\n");
